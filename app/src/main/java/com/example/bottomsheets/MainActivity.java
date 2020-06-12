@@ -10,22 +10,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 
-
-
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BottomSheetFragment.BottomSheetListener {
 
     private BottomSheetBehavior bottomSheetBehavior;
-    private TextView tvState;
-    private Button btnExpand,btnCollapse;
+    private static TextView tvState;
+    private Button btnExpand,btnCollapse,button_Modal_Bottom_Sheet;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
         final View bottomSheet = findViewById(R.id.bottom_sheet);
         bottomSheetBehavior = bottomSheetBehavior.from(bottomSheet);
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnExpand = findViewById(R.id.button_expand);
         btnCollapse = findViewById(R.id.button_collapse);
+        button_Modal_Bottom_Sheet = findViewById(R.id.button_Modal_Bottom_Sheet);
 
         btnExpand.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,5 +78,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        button_Modal_Bottom_Sheet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BottomSheetFragment bottomSheetFragment = new BottomSheetFragment();
+                bottomSheetFragment.show(getSupportFragmentManager(),"exampleBottomSheet");
+            }
+        });
+    }
+
+    @Override
+    public void onBottomSheetClick(String text) {
+        tvState.setText(text);
     }
 }
