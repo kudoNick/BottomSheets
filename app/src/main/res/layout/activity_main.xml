@@ -36,12 +36,17 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="350dp"
         android:background="@color/colorPrimaryDark"
+
         app:layout_behavior="@string/bottom_sheet_behavior"
-        app:behavior_hideable="false"
+        app:behavior_hideable="true"
         app:behavior_peekHeight="56dp"
+
         >
+        <!--    app:layout_behavior:     Thuộc tính này làm cho layout hoạt động dưới dạng bottom sheet-->
+        <!--    app:behavior_peekHeight:   Đây là chiều cao của bottom sheet khi nó được thu nhỏ.-->
+        <!--     app:behavior_hideable:   Làm ẩn tbottom sheet khi vuốt xuống.-->
         <TextView
             android:textColor="#ffffff"
             android:textSize="25sp"

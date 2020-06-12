@@ -49,21 +49,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //lắng nghe sự kiện khi đóng mở BottomSheet
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomsheet, int newstate) {
                 switch (newstate) {
                     case BottomSheetBehavior.STATE_COLLAPSED:
-                         tvState.setText("Collapsed");
+                         tvState.setText("Sụp đổ");
                          break;
                     case BottomSheetBehavior.STATE_DRAGGING:
-                        tvState.setText("Collapsed");
+                        tvState.setText("Đang kéo...");
                         break;
                     case BottomSheetBehavior.STATE_EXPANDED:
-                        tvState.setText("expanded");
+                        tvState.setText("Mở Rộng");
                         break;
                     case BottomSheetBehavior.STATE_SETTLING:
-                        tvState.setText("settling");
+                        tvState.setText("định cư");
                         break;
 
                 }
